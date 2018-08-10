@@ -75,3 +75,12 @@ functions:
               ReadCapacityUnits: 2
               WriteCapacityUnits: 2
             TableName: Task
+            
+     custom:
+  # stage: ${opt:stage}
+  authorizer:
+    users:
+      name: auth
+      type: TOKEN
+      identitySource: method.request.header.Authorization
+      identityValidationExpression: Bearer (.*)
