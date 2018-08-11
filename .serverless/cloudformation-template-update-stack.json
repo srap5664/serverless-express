@@ -8,7 +8,7 @@
     "AppLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/my-express-application-dev-app"
+        "LogGroupName": "/aws/lambda/serverless-dev-app"
       }
     },
     "IamRoleLambdaExecution": {
@@ -37,7 +37,7 @@
                 "-",
                 [
                   "dev",
-                  "my-express-application",
+                  "serverless",
                   "lambda"
                 ]
               ]
@@ -52,7 +52,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-application-dev-app:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-dev-app:*"
                     }
                   ]
                 },
@@ -63,7 +63,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-application-dev-app:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-dev-app:*:*"
                     }
                   ]
                 }
@@ -76,7 +76,7 @@
           "Fn::Join": [
             "-",
             [
-              "my-express-application",
+              "serverless",
               "dev",
               "us-east-1",
               "lambdaRole"
@@ -92,9 +92,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/my-express-application/dev/1533918483361-2018-08-10T16:28:03.361Z/my-express-application.zip"
+          "S3Key": "serverless/serverless/dev/1533974463700-2018-08-11T08:01:03.700Z/serverless.zip"
         },
-        "FunctionName": "my-express-application-dev-app",
+        "FunctionName": "serverless-dev-app",
         "Handler": "index.handler",
         "MemorySize": 1024,
         "Role": {
@@ -111,20 +111,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersionmmppNUDJ4nf9kW4r0sNCYUxjfpD0PgXqJ0zceQt7z6U": {
+    "AppLambdaVersionib3qgNEX1kdVb0d1L3AlAJLx8f91K82lJKnP6u83vcU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "aVUavIkAxfejpUqiw6GLPBZnxh2CGAhH64JONGjpXT8="
+        "CodeSha256": "4s0V/ccB91H5dhP4yY9dGzLltEClqUCgwZtMAm77UyI="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-my-express-application",
+        "Name": "dev-serverless",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -236,7 +236,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1533918483403": {
+    "ApiGatewayDeployment1533974463742": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -306,7 +306,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionmmppNUDJ4nf9kW4r0sNCYUxjfpD0PgXqJ0zceQt7z6U"
+        "Ref": "AppLambdaVersionib3qgNEX1kdVb0d1L3AlAJLx8f91K82lJKnP6u83vcU"
       }
     },
     "ServiceEndpoint": {

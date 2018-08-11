@@ -1,0 +1,41 @@
+resources:
+  Resources:
+    Users:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "userName"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "userName"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 2            
+    Courses:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Retain
+      Properties:             
+        AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 2
+    Tasks:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Retain
+      Properties:             
+        AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 2

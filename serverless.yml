@@ -1,4 +1,4 @@
-service: my-express-application
+service: serverless
 
 provider:
   name: aws
@@ -12,50 +12,4 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
-  courses:
-    handler: courses.handler
-    events:
-        - http: ANY /courses
-        
 
-
-Resources:
-ItemsTable:
-  Type: "AWS::DynamoDB::Table"
-  Properties:
-    TableName: "Users"
-    AttributeDefinitions:
-    - AttributeName: "Username"
-      AttributeType: "S"
-    KeySchema:
-    - AttributeName: "Username"
-      KeyType: "HASH"
-    ProvisionedThroughput:
-      ReadCapacityUnits: 2
-      WriteCapacityUnits: 2            
-Courses:
-  Type: "AWS::DynamoDB::Table"
-  Properties:             
-    TableName: "Courses"
-    AttributeDefinitions:
-    - AttributeName: "id"
-      AttributeType: "S"
-    KeySchema:
-    - AttributeName: "id"
-      KeyType: "HASH"
-    ProvisionedThroughput:
-      ReadCapacityUnits: 2
-      WriteCapacityUnits: 2
-  Tasks:
-    Type: "AWS::DynamoDB::Table"
-    Properties:             
-      TableName: "Tasks"
-      AttributeDefinitions:
-      - AttributeName: "id"
-        AttributeType: "S"
-      KeySchema:
-      - AttributeName: "id"
-        KeyType: "HASH"
-      ProvisionedThroughput:
-        ReadCapacityUnits: 2
-        WriteCapacityUnits: 2
